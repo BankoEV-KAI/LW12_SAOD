@@ -18,10 +18,10 @@
     <ClCompile Include="LW12_SAOD.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="BSTstruct.cpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClCompile>
     <ClCompile Include="menu.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="BSTstruct.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
