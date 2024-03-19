@@ -112,6 +112,7 @@ Node* findReplacement(Node* p) {
     return p;
 }
 
+
 Node* deleteNode(Node* pCurrent, int newKey) {
     if (pCurrent == nullptr) {
         std::cout << "Удаление невозможно: искомая вершина не найдена";
@@ -129,21 +130,33 @@ Node* deleteNode(Node* pCurrent, int newKey) {
         else {
             Node* pTemp = pCurrent;
             if (pTemp->right == nullptr) {
-                pCurrent = pTemp->left;
+                Node* newRoot = pTemp->left;
+                delete pTemp;
+                return newRoot;
             }
             else if (pTemp->left == nullptr) {
-                pCurrent = pTemp->right;
+                Node* newRoot = pTemp->right;
+                delete pTemp;
+                return newRoot;
             }
             else {
-                Node* replacement = findReplacement(pCurrent->left);
-                std::cout << "Значение заменяемой вершины: " << replacement->key << ", родителя: " << ParentVertex->key;
-                ParentVertex->right = replacement->left;
+                Node* replacementParent = pTemp;
+                Node* replacement = pTemp->right;
+                while (replacement->left != nullptr) {
+                    replacementParent = replacement;
+                    replacement = replacement->left;
+                }
+
                 pCurrent->key = replacement->key;
-                pCurrent->left = deleteNode(pCurrent->left, replacement->key);
-                pTemp = replacement;
+
+                if (replacementParent == pTemp)
+                    replacementParent->right = replacement->right;
+                else
+                    replacementParent->left = replacement->right;
+
+                delete replacement;
                 return pCurrent;
             }
-            delete pTemp;
         }
     }
     return pCurrent;
