@@ -18,6 +18,18 @@ void printInverselySymmetrical(Node* pCurrent, int levelBST) {
     }
 }
 
+void printForward(Node* pCurrent, int levelPBT) {
+    if (pCurrent != NULL) {
+        std::string str;
+        for (int i = 0; i < levelPBT; i++)
+            str += "     ";
+        std::cout << " " << str << pCurrent->key << "\n";
+
+        printForward(pCurrent->left, levelPBT + 1);
+        printForward(pCurrent->right, levelPBT + 1);
+    }
+}
+
 void printKeyCounter(Node* pCurrent) {
     if (pCurrent != nullptr) {
         printKeyCounter(pCurrent->left); 
@@ -211,6 +223,9 @@ void searchNode() {
 void print() {
     std::cout << "Бинарное дерево поиска в обратно-симметричном виде: " << std::endl;
     printInverselySymmetrical(Root, 0);
+    std::cout << std::endl;
+    std::cout << "" << std::endl;
+    printForward(Root, 0);
     std::cout << std::endl;
 }
 

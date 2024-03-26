@@ -12,6 +12,8 @@ extern Node* ParentVertex;
 
 void printInverselySymmetrical(Node* pCurrent, int levelBST);
 
+void printForward(Node* pCurrent, int levelPBT);
+
 void printKeyCounter(Node* pCurrent);
 
 Node* searchNode(int searchKey);
