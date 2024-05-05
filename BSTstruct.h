@@ -10,7 +10,7 @@ struct Node {
 extern Node* Root;
 extern Node* ParentVertex;
 
-void printInverselySymmetrical(Node* pCurrent, int levelBST);
+void printInverselySymmetrical(Node* pCurrent, int levelBSTz);
 
 void printForward(Node* pCurrent, int levelPBT);
 

@@ -224,7 +224,7 @@ void print() {
     std::cout << "Бинарное дерево поиска в обратно-симметричном виде: " << std::endl;
     printInverselySymmetrical(Root, 0);
     std::cout << std::endl;
-    std::cout << "" << std::endl;
+    std::cout << "Бинарное дерево поиска в прямом порядке: " << std::endl;
     printForward(Root, 0);
     std::cout << std::endl;
 }
